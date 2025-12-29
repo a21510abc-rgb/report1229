@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>拉布布 Labubu｜角色介紹</title>
+
+  <style>
+    :root {
+      --bg: #faf7f5;
+      --card: #ffffff;
+      --primary: #6b4eff;
+      --muted: #6b7280;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", system-ui, sans-serif;
+      background: linear-gradient(180deg, #fff, var(--bg));
+      color: #2b2b2b;
+      line-height: 1.7;
+    }
+
+    header {
+      text-align: center;
+      padding: 64px 24px 40px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(107,78,255,.1);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      margin: 12px 0;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    select {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-left: 12px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .hero-img {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      min-height: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-img img {
+      max-width: 100%;
+      max-height: 260px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 16px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="badge">POP MART 人氣角色</div>
+  <h1>拉布布 Labubu</h1>
+  <p class="subtitle">
+    古靈精怪、帶點淘氣又溫柔的森林小怪獸，
+    由藝術家 Kasing Lung 創作。
+  </p>
+</header>
+
+<main>
+
+  <!-- 下拉選單 -->
+  <section>
+    <label for="series"><strong>選擇拉布布系列：</strong></label>
+    <select id="series">
+      <option value="forest">森林童話系列</option>
+      <option value="halloween">萬聖節系列</option>
+      <option value="circus">馬戲團系列</option>
+      <option value="coco">可口可樂系列</option>
+      <option value="THEMONSTERS">海賊王系列</option>
+    </select>
+
+    <div id="series-info" class="card">
+      <h3>森林童話系列</h3>
+      <p>拉布布生活在神秘森林中，與小動物們一起冒險。</p>
+    </div>
+  </section>
+
+  <!-- 角色介紹 + 圖片 -->
+  <section class="hero">
+    <div>
+      <h2>角色簡介</h2>
+      <div id="heroText">
+        <p>拉布布（Labubu）擁有大眼睛與尖牙，看似調皮卻內心溫柔，深受粉絲喜愛。</p>
+        <ul>
+          <li><strong>創作者：</strong>Kasing Lung</li>
+          <li><strong>風格：</strong>童話 × 奇幻</li>
+          <li><strong>特色：</strong>表情豐富</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <img id="heroImage" src="./172984155386_o.png" alt="拉布布圖片">
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2025 拉布布介紹網站（非官方）
+</footer>
+
+<script>
+const data = {
+  forest: {
+    title: "森林童話系列",
+    seriesText: "拉布布生活在神秘森林中，與小動物們一起冒險。",
+    heroHTML: `<p>拉布布（Labubu）在森林裡與小動物們玩耍，調皮卻溫柔。</p>
+               <ul>
+                 <li><strong>創作者：</strong>Kasing Lung</li>
+                 <li><strong>風格：</strong>童話 × 奇幻</li>
+                 <li><strong>特色：</strong>表情豐富</li>
+               </ul>`,
+    img: "./172984155386_o.png"
+  },
+  halloween: {
+    title: "萬聖節系列",
+    seriesText: "南瓜、幽靈與魔法，展現調皮又神秘的一面。",
+    heroHTML: `<p>拉布布化身小魔法師，帶點驚喜與趣味。</p>
+               <ul>
+                 <li><strong>創作者：</strong>Kasing Lung</li>
+                 <li><strong>風格：</strong>奇幻 × 萬聖節</li>
+                 <li><strong>特色：</strong>神秘又俏皮</li>
+               </ul>`,
+    img: "./123.jpg"
+  },
+  circus: {
+    title: "馬戲團系列",
+    seriesText: "化身馬戲團成員，氣氛活潑又夢幻。",
+    heroHTML: `<p>拉布布穿上馬戲團服裝，帶來歡樂表演。</p>
+               <ul>
+                 <li><strong>創作者：</strong>Kasing Lung</li>
+                 <li><strong>風格：</strong>夢幻 × 馬戲團</li>
+                 <li><strong>特色：</strong>活潑可愛</li>
+               </ul>`,
+    img: "./images.jpg"
+  },
+  coco: {
+    title: "可口可樂系列",
+    seriesText: "穿上紅白色彩，與可樂潮玩拉布布一起展開趣味冒險。",
+    heroHTML: `<p>拉布布化身可樂小精靈，充滿活力與趣味。</p>
+               <ul>
+                 <li><strong>創作者：</strong>Kasing Lung</li>
+                 <li><strong>風格：</strong>潮流 × 可樂</li>
+                 <li><strong>特色：</strong>活潑趣味</li>
+               </ul>`,
+    img: "./original.jpg"
+  },
+  THEMONSTERS: {
+    title: "海賊王系列",
+    seriesText: "踏上尋找寶藏的冒險。",
+    heroHTML: `<p>拉布布扮演海賊，展開刺激航海之旅。</p>
+               <ul>
+                 <li><strong>創作者：</strong>Kasing Lung</li>
+                 <li><strong>風格：</strong>冒險 × 海賊</li>
+                 <li><strong>特色：</strong>勇敢探索</li>
+               </ul>`,
+    img: "800x.jpg"
+  }
+};
+
+const select = document.getElementById("series");
+const info = document.getElementById("series-info");
+const heroText = document.getElementById("heroText");
+const img = document.getElementById("heroImage");
+
+select.addEventListener("change", () => {
+  const s = data[select.value];
+  info.innerHTML = `<h3>${s.title}</h3><p>${s.seriesText}</p>`;
+  heroText.innerHTML = s.heroHTML;
+  img.src = s.img;
+});
+</script>
+
+</body>
+</html>
