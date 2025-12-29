@@ -121,14 +121,14 @@
   <div class="badge">POP MART 人氣角色</div>
   <h1>拉布布 Labubu</h1>
   <p class="subtitle">
-    古靈精怪、帶點淘氣又溫柔的森林小怪獸，
-    由藝術家 Kasing Lung 創作。
+    古靈精怪、帶點淘氣又溫柔的森林小怪獸，  
+    看起來壞壞的，其實內心軟到不行。
   </p>
 </header>
 
 <main>
 
-  <!-- 下拉選單 -->
+  <!-- 原本的系列下拉（保留） -->
   <section>
     <label for="series"><strong>選擇拉布布系列：</strong></label>
     <select id="series">
@@ -145,16 +145,34 @@
     </div>
   </section>
 
-  <!-- 角色介紹 + 圖片 -->
+  <!-- ⭐ 新增：世界觀下拉 -->
+  <section class="card">
+    <label for="lore"><strong>拉布布冷知識 ：</strong></label>
+    <select id="lore">
+      <option value="default">請選擇一則小故事</option>
+      <option value="eyes">為什麼眼睛這麼大？</option>
+      <option value="teeth">尖牙是不是很壞？</option>
+      <option value="forest">森林世界觀設定</option>
+    </select>
+
+    <p id="loreText" style="margin-top:12px;color:#555;">
+      選一個看看，這裡會出現一些其實不看也不影響人生的內容。
+    </p>
+  </section>
+
+  <!-- 角色介紹 -->
   <section class="hero">
     <div>
       <h2>角色簡介</h2>
       <div id="heroText">
-        <p>拉布布（Labubu）擁有大眼睛與尖牙，看似調皮卻內心溫柔，深受粉絲喜愛。</p>
+        <p>
+          拉布布（Labubu）擁有大眼睛與尖牙，
+          看起來調皮又有點壞，但其實非常重感情。
+        </p>
         <ul>
           <li><strong>創作者：</strong>Kasing Lung</li>
           <li><strong>風格：</strong>童話 × 奇幻</li>
-          <li><strong>特色：</strong>表情豐富</li>
+          <li><strong>特色：</strong>表情多到像在演八點檔</li>
         </ul>
       </div>
     </div>
@@ -167,15 +185,17 @@
 </main>
 
 <footer>
-  © 2025 拉布布介紹網站（非官方）
+  © 2025 拉布布介紹網站（非官方）  
+  <br>本網站廢話偏多，請自行斟酌閱讀
 </footer>
 
 <script>
+/* ===== 原本系列資料（保留） ===== */
 const data = {
   forest: {
     title: "森林童話系列",
     seriesText: "拉布布生活在神秘森林中，與小動物們一起冒險。",
-    heroHTML: `<p>拉布布（Labubu）在森林裡與小動物們玩耍，調皮卻溫柔。</p>
+    heroHTML: `<p>拉布布在森林裡與小動物們玩耍，調皮卻溫柔。</p>
                <ul>
                  <li><strong>創作者：</strong>Kasing Lung</li>
                  <li><strong>風格：</strong>童話 × 奇幻</li>
@@ -186,45 +206,25 @@ const data = {
   halloween: {
     title: "萬聖節系列",
     seriesText: "南瓜、幽靈與魔法，展現調皮又神秘的一面。",
-    heroHTML: `<p>拉布布化身小魔法師，帶點驚喜與趣味。</p>
-               <ul>
-                 <li><strong>創作者：</strong>Kasing Lung</li>
-                 <li><strong>風格：</strong>奇幻 × 萬聖節</li>
-                 <li><strong>特色：</strong>神秘又俏皮</li>
-               </ul>`,
+    heroHTML: `<p>拉布布化身小魔法師，亂嚇人但自己先怕。</p>`,
     img: "./123.jpg"
   },
   circus: {
     title: "馬戲團系列",
     seriesText: "化身馬戲團成員，氣氛活潑又夢幻。",
-    heroHTML: `<p>拉布布穿上馬戲團服裝，帶來歡樂表演。</p>
-               <ul>
-                 <li><strong>創作者：</strong>Kasing Lung</li>
-                 <li><strong>風格：</strong>夢幻 × 馬戲團</li>
-                 <li><strong>特色：</strong>活潑可愛</li>
-               </ul>`,
+    heroHTML: `<p>雜耍可能會失敗，但氣勢一定要有。</p>`,
     img: "./images.jpg"
   },
   coco: {
     title: "可口可樂系列",
-    seriesText: "穿上紅白色彩，與可樂潮玩拉布布一起展開趣味冒險。",
-    heroHTML: `<p>拉布布化身可樂小精靈，充滿活力與趣味。</p>
-               <ul>
-                 <li><strong>創作者：</strong>Kasing Lung</li>
-                 <li><strong>風格：</strong>潮流 × 可樂</li>
-                 <li><strong>特色：</strong>活潑趣味</li>
-               </ul>`,
+    seriesText: "紅白配色，看起來就很想喝一口。",
+    heroHTML: `<p>據說這系列看了會口渴。</p>`,
     img: "./original.jpg"
   },
   THEMONSTERS: {
     title: "海賊王系列",
     seriesText: "踏上尋找寶藏的冒險。",
-    heroHTML: `<p>拉布布扮演海賊，展開刺激航海之旅。</p>
-               <ul>
-                 <li><strong>創作者：</strong>Kasing Lung</li>
-                 <li><strong>風格：</strong>冒險 × 海賊</li>
-                 <li><strong>特色：</strong>勇敢探索</li>
-               </ul>`,
+    heroHTML: `<p>目標是寶藏，但常常迷路。</p>`,
     img: "800x.jpg"
   }
 };
@@ -239,6 +239,20 @@ select.addEventListener("change", () => {
   info.innerHTML = `<h3>${s.title}</h3><p>${s.seriesText}</p>`;
   heroText.innerHTML = s.heroHTML;
   img.src = s.img;
+});
+
+
+const lore = document.getElementById("lore");
+const loreText = document.getElementById("loreText");
+
+const loreData = {
+  eyes: "眼睛大是為了更容易被發現，也更容易裝無辜。",
+  teeth: "尖牙只是造型，實際上比較常用來吃甜點。",
+  forest: "拉布布的森林世界沒有地圖，因為大家都隨便走。"
+};
+
+lore.addEventListener("change", () => {
+  loreText.textContent = loreData[lore.value] || "這是一個沒有意義但很和平的選項。";
 });
 </script>
 
